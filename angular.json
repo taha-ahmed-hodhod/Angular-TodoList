@@ -79,6 +79,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/first-angular-project/",
               "budgets": [
                 {
                   "type": "initial",
