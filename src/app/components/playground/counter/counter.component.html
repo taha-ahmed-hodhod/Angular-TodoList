@@ -1,0 +1,12 @@
+<h1
+  [ngClass]="{
+    'text-success': counterServices.counter < 5,
+    'text-warning': counterServices.counter <= 8 && counterServices.counter >= 5,
+    'text-danger': counterServices.counter <= 10 && counterServices.counter >= 8,
+  }"
+  [ngStyle]="{
+    marginBottom: counterServices.counter > 5 ? '40px' : '20',
+  }"
+>
+  {{ counterServices.counter }}
+</h1>

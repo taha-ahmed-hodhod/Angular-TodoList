@@ -1,0 +1,19 @@
+<div class="d-flex flex-column align-items-center rounded-2 border border-1 m-3 p-3 border-secondary">
+  <p class="h1" [innerText]="title"></p>
+  <p class="fs-4">{{ message }}</p>
+  <div class="d-flex w-100 gap-2">
+      <button class="btn btn-success w-100" (click)="printMessage('play')">play</button>
+      <button class="btn btn-danger w-100" (click)="printMessage('not')">not</button>
+  </div>
+
+  <div class="w-100 mt-3">
+    <p>If you want play, tell me why?</p>
+    <input type="text" class="form-control" (input)="onInput($event)">
+  </div>
+
+  <div>
+    <p>
+        {{ messageFromTemplete }}
+    </p>
+  </div>
+</div>

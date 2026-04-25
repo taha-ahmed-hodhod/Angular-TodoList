@@ -1,0 +1,37 @@
+<div class="d-flex flex-column align-items-center mt-5">
+    <app-preview-counter/>
+
+<div class="d-flex gap-2">
+    <button class="btn btn-danger" (click)="counterServices.increment()">+</button>
+    <button class="btn btn-success" (click)="counterServices.decrement()">-</button>
+    <button class="btn btn-dark" (click)="counterServices.onLog()">log</button>
+</div>
+@if (counterServices.counter == 10) {
+    <p class="text-danger">You have reached the max</p>
+}
+</div>
+
+@if (counterServices.logs.length) {
+<div class="d-flex border border-2 m-4 p-4 rounded flex-column" >
+    @for (log of counterServices.logs; track log) {
+        <p class=" fs-italic fw-light" appHilight>{{log.counter}} loged on {{log.date}}</p>
+    } @empty {
+        <p>Not Have a any LOgs </p>
+    }
+    </div>
+}
+@switch (counterServices.counter) {
+    @case (1) {
+        <p>hello</p>
+    }
+    @case (2) {
+        <p>Hi</p>
+
+    }
+    @default {
+        <p >Hola</p>
+
+    }
+}
+
+

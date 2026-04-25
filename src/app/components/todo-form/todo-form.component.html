@@ -1,0 +1,11 @@
+<form  class="d-flex flex-column align-items-center gap-2" [formGroup]="todoForm" (ngSubmit)="onsubmit()">
+    <div class="w-50"> 
+        <label for="" class="form-label">Task</label>
+        <input type="text" class="form-control"  formControlName = "task" >
+    </div>
+    <div class="w-50"> 
+        <label for="" class="form-label">Description</label>
+        <textarea name="" class="form-control" id="" formControlName = "desc"></textarea>
+    </div>
+    <button class="btn btn-primary" [disabled]="todoForm.invalid">Add Task</button>
+</form>

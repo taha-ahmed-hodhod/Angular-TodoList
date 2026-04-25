@@ -1,0 +1,18 @@
+
+<div>
+  <input type="checkbox" class="form-check-box" />
+  <label class="form-check-label">{{ todoItem.task }}</label>
+</div>
+<button class="btn ms-auto" [attr.data-bs-target]=" '#' + todoItem.id" data-bs-toggle="collapse">
+  <i class="bi bi-caret-down-square-fill"></i>
+</button>
+<div class="collapse w-100" [id]="todoItem.id">
+  <p class="card card-body">
+    {{ todoItem.description }}
+  </p>
+</div>
+
+<p class="m-0 d-flex justify-content-between w-100">
+  <span class="fs-6"> {{ todoItem.createdAt | date:"medium"}} </span>
+  <button class="btn btn-danger"><i class="bi bi-trash-fill" (click)="onDelete()"></i></button>
+</p>
