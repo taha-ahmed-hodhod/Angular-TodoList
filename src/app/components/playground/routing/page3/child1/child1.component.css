@@ -1,0 +1,11 @@
+p{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: tomato;
+    margin-bottom: 0;
+}

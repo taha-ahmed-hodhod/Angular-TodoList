@@ -1,4 +1,12 @@
 {
-  "tasks": [],
+  "tasks": [
+    {
+      "id": "KodXdd68J8E",
+      "task": "Angular task Day 5",
+      "description": "finish final lecture in angular and end the task",
+      "createdAt": "2026-05-05T16:08:52.894Z",
+      "isChacked": false
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

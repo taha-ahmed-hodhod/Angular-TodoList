@@ -1,4 +1,8 @@
-import { NgModule, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import {
+  NgModule,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { AppComponent } from './app/app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './app/components/playground/card/card.component';
@@ -23,9 +27,61 @@ import { SecondComponent } from './app/components/playground/second/second.compo
 import { ThirdComponent } from './app/components/playground/third/third.component';
 import { LifeCycleComponent } from './app/components/playground/life-cycle/life-cycle.component';
 import { TodoFormComponent } from './app/components/todo-form/todo-form.component';
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-import {  ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
+import { RoutingComponent } from './app/components/playground/routing/routing.component';
+import { Page1Component } from './app/components/playground/routing/page1/page1.component';
+import { Page2Component } from './app/components/playground/routing/page2/page2.component';
+import { Page3Component } from './app/components/playground/routing/page3/page3.component';
+import { Route, RouterModule } from '@angular/router';
+import { authGuard } from './app/guards/auth.guard';
+import { Child1Component } from './app/components/playground/routing/page3/child1/child1.component';
+import { Child2Component } from './app/components/playground/routing/page3/child2/child2.component';
+import { NotFoundComponent } from './app/components/playground/routing/not-found/not-found.component';
 
+const routes: Route[] = [
+
+  {
+    path: '',
+    redirectTo: 'page1',
+    pathMatch: 'full',
+  },
+  {
+    path: 'page1',
+    component: Page1Component,
+  },
+  {
+    path: 'page2/:msg',
+    component: Page2Component,
+  },
+  {
+    path: 'page3',
+    component: Page3Component,
+    canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        redirectTo: 'child1',
+        pathMatch: 'full',
+      },
+      {
+        path: 'child1',
+        component: Child1Component,
+      },
+      {
+        path: 'child2',
+        component: Child2Component,
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      },
+    ],
+  },
+  {
+        path: '**',
+        component: NotFoundComponent
+  },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +106,13 @@ import {  ToastrModule } from 'ngx-toastr';
     ThirdComponent,
     LifeCycleComponent,
     TodoFormComponent,
+    RoutingComponent,
+    Page1Component,
+    Page2Component,
+    Page3Component,
+    Child1Component,
+    Child2Component,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,13 +121,14 @@ import {  ToastrModule } from 'ngx-toastr';
       timeOut: 3000,
       positionClass: 'toast-bottom-right',
     }),
-  ReactiveFormsModule, 
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
   ],
   exports: [CardComponent],
   bootstrap: [AppComponent],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideZoneChangeDetection({ eventCoalescing: true }) 
+    provideZoneChangeDetection({ eventCoalescing: true }),
   ],
 })
-export class AppModule {}
+export class AppModule { }
