@@ -6,28 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/page1" routerActiveLink="active">page 1</a>
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/page2/hello" routerActiveLink="active">page 2</a>
+          <a class="nav-link active" aria-current="page" routerLink="/playground" routerLinkActive="active">playground</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/page3" routerActiveLink="active">page 3</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="#">Home</a>
-        </li> -->
        
       </ul>
     </div>
-    <button 
-        class="btn m-1" 
-        [ngClass]="{
-          'btn-outline-success' : !authService.isAuth,
-          'btn-outline-danger' : authService.isAuth
-        }"
-        (click)="authService.isAuth = !authService.isAuth"
-        > {{authService.isAuth ? 'Logout' : 'Login'}}</button>
+    
   </div>
 </nav>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-routing',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './routing.component.html',
   styleUrl: './routing.component.css',
 })
-export class RoutingComponent {}
+export class RoutingComponent {
+  authService = inject(AuthService) 
+}
